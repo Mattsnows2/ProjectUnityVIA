@@ -10,14 +10,15 @@ public class shoot : MonoBehaviour
     public int bulletInWeapon = 20;
     public Transform weapon;
     public GameObject bullet;
+    public GameObject exploson;
     private Animator anim;
-    public GameObject soundShoot;
+    public AudioSource soundShoot;
     public TextMeshProUGUI countText;
 
     void Start()
     {
         anim = GetComponent<Animator>();
-        soundShoot.SetActive(false);
+    
         SetCountBullet();
     }
 
@@ -32,7 +33,7 @@ public class shoot : MonoBehaviour
         {
             DoShoot();
                 anim.SetBool("isShooting", true);
-                soundShoot.SetActive(true);
+               soundShoot.Play(0);
             }
             else
             {
@@ -43,12 +44,13 @@ public class shoot : MonoBehaviour
 
 
         }
-        soundShoot.SetActive(false);
+     
     }
 
     private void DoShoot()
     {
         Instantiate(bullet, weapon.position, weapon.rotation);
+        Instantiate(exploson, weapon.position, weapon.rotation);
       
         max = max - 1;
         SetCountBullet();

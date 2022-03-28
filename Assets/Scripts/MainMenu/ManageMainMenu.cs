@@ -24,7 +24,7 @@ public class ManageMainMenu : MonoBehaviour
 
     public void OnSettings()
     {
-
+        SceneManager.LoadScene("Settings");
     }
 
     public void OnExit()
