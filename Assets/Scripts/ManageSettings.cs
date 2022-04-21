@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ManageSettings : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class ManageSettings : MonoBehaviour
     public TMPro.TMP_Dropdown Resolution;
     public AudioSource audioSource;
     public Slider sliderSound;
+    public Slider sliderFPS;
+    public Toggle toggleVsync;
+    private bool value = false;
     void Start()
     {
         
@@ -39,4 +43,30 @@ public class ManageSettings : MonoBehaviour
     {
         audioSource.volume =sliderSound.value;
     }
+
+    public void SliderFPSChange()
+    {
+       int sliderValueInInt = (int)Mathf.Round(sliderFPS.value * 200);
+        Application.targetFrameRate = sliderValueInInt;
+        print(Application.targetFrameRate);
+    }
+
+    public void ToogleChange(bool value)
+    {
+        if(toggleVsync.isOn)
+        {
+            QualitySettings.vSyncCount = 1;
+        }
+        else
+        {
+            QualitySettings.vSyncCount = 0;
+        }
+    }
+
+    public void ButtonBack()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    
 }
