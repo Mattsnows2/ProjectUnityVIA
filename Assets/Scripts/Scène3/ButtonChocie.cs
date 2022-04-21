@@ -16,7 +16,7 @@ public class ButtonChocie : MonoBehaviour
     public void ButtonChoice2()
     {
 
-        SceneManager.LoadScene("Scene4Choice1");
+        SceneManager.LoadScene("Scene5Choice2");
         print("j'ai cliqué");
     }
 }
