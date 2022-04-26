@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Hangar : MonoBehaviour
 {
@@ -35,7 +36,7 @@ public class Hangar : MonoBehaviour
             buttonsChoices.SetActive(true);
             explosion.SetActive(true);
             textHangar.SetActive(true);
-            StartCoroutine("Choice");
+           
             CameraEnd.SetActive(true);
             player.SetActive(false);
 
@@ -51,6 +52,8 @@ public class Hangar : MonoBehaviour
 
             yield return new WaitForSeconds(2);
             Instantiate(explosion, explosionPosition.transform.position, Quaternion.identity);
+            yield return new WaitForSeconds(4);
+            SceneManager.LoadScene("Scene4");
         }
     }
 

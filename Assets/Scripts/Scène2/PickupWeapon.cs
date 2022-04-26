@@ -6,7 +6,7 @@ public class PickupWeapon : MonoBehaviour
 {
    
     public Transform gunPosition;
-    public GameObject arm, spawnEnnemies,soundMusiqueBackground, textPickupWeapon;
+    public GameObject arm, spawnEnnemies,soundMusiqueBackground, textPickupWeapon, count;
     private bool isTrigered;
    
 
@@ -16,6 +16,7 @@ public class PickupWeapon : MonoBehaviour
         spawnEnnemies.SetActive(false); 
         soundMusiqueBackground.SetActive(false);
         textPickupWeapon.SetActive(false);
+        count.SetActive(false);
     }
     // Update is called once per frame
     void Update()
@@ -26,6 +27,7 @@ public class PickupWeapon : MonoBehaviour
             transform.parent = gunPosition;
             arm.SetActive(true);
             spawnEnnemies.SetActive(true);
+            count.SetActive(true);
             soundMusiqueBackground.SetActive(true);
             textPickupWeapon.SetActive(false);
             transform.rotation = Quaternion.Euler(gunPosition.rotation.x , gunPosition.rotation.y, gunPosition.rotation.z);

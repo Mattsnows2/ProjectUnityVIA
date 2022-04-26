@@ -10,13 +10,13 @@ public class ButtonChocie : MonoBehaviour
     
     public void Buttonhoice1()
     {
-        print("j'ai cliqué");
+        SceneManager.LoadScene("Scene5Choice1");
     }
 
     public void ButtonChoice2()
     {
 
         SceneManager.LoadScene("Scene5Choice2");
-        print("j'ai cliqué");
+       
     }
 }
