@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class playerMovement : MonoBehaviour
 {
@@ -13,12 +14,16 @@ public class playerMovement : MonoBehaviour
     public LayerMask groundMask;
     public float jumpHeight = 3f;
     public float health = 100;
+    public GameObject ImageGameOver;
   
 
     Vector3 velocity;
     bool isGrounded;
 
-    
+    void Start()
+    {
+        ImageGameOver.SetActive(false);
+    }
   
     // Update is called once per frame
     void Update()
@@ -56,7 +61,17 @@ public class playerMovement : MonoBehaviour
 
         if(health < 0)
         {
-            Debug.Log("die");
+            ImageGameOver.SetActive(true);
+            StartCoroutine("death");
+           
+            //Debug.Log("die");
         }
+    }
+
+    IEnumerator death()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
     }
 }

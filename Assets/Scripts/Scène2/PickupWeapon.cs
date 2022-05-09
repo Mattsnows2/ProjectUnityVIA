@@ -8,6 +8,7 @@ public class PickupWeapon : MonoBehaviour
     public Transform gunPosition;
     public GameObject arm, spawnEnnemies,soundMusiqueBackground, textPickupWeapon, count;
     private bool isTrigered;
+    private bool notDisplayText;
    
 
     void Start()
@@ -32,6 +33,8 @@ public class PickupWeapon : MonoBehaviour
             textPickupWeapon.SetActive(false);
             transform.rotation = Quaternion.Euler(gunPosition.rotation.x , gunPosition.rotation.y, gunPosition.rotation.z);
             transform.position = new Vector3(gunPosition.position.x, gunPosition.position.y, gunPosition.position.z);
+            notDisplayText = true;
+
         }
     }
 
@@ -41,11 +44,18 @@ public class PickupWeapon : MonoBehaviour
         {
             isTrigered=true;
             textPickupWeapon.SetActive(true);
+           
+
+            if(notDisplayText == true)
+            {
+                textPickupWeapon.SetActive(false);
+            }
         }
     }
 
     void OnTriggerExit(Collider col)
     {
         isTrigered = false;
+        textPickupWeapon.SetActive(false);
     }
 }

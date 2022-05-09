@@ -20,6 +20,7 @@ public class PickupKey : MonoBehaviour
         {
             car = GameObject.FindObjectOfType(typeof(CarController)) as CarController;
             car.takeKey();
+            textPickupKey.SetActive(false);
             Destroy(gameObject);
         }   
     }

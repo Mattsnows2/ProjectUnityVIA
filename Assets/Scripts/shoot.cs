@@ -33,7 +33,7 @@ public class shoot : MonoBehaviour
         {
             DoShoot();
                 anim.SetBool("isShooting", true);
-               soundShoot.Play(0);
+               soundShoot.Play();
             }
             else
             {
